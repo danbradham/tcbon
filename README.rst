@@ -65,14 +65,6 @@ class Process()
         app_dir (str): Optional directory in which to store .pid file
         debug (bool): Set logging level to DEBUG
 
-    @property
-    def pid_file(self)
-        Full path to pid_file
-
-    @property
-    def running(self)
-        Check if the Process is running.
-
     def run_forever(self)
         Convenient method to run this Process forever. Gracefully exits
         on KeyboardInterrupt.
