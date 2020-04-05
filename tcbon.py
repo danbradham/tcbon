@@ -237,18 +237,6 @@ class Process(object):
         with open(self.pid_file, 'w') as f:
             f.write(str(pid) + '\n' + self.address)
 
-    def register_event_handler(self, event, handler):
-        '''Specify the handler for an event.'''
-
-        self.log.debug('%s will handle all %s events' % (handler, event))
-        self.event_handlers[event] = handler
-
-    def unregister_event_handler(self, event):
-        '''Remove a handler from an event.'''
-
-        self.log.debug('Removing handlers for %s' % event)
-        self.event_handlers.pop(event, None)
-
     @property
     def pid_file(self):
         return self.app_dir + '/.pid'
@@ -448,3 +436,15 @@ class Process(object):
     def on_stop(self):
         '''Subclasses can override this method to perform teardown for the
         application. This is run prior to sending a shutdown event.'''
+
+    def register_event_handler(self, event, handler):
+        '''Specify the handler for an event.'''
+
+        self.log.debug('%s will handle all %s events' % (handler, event))
+        self.event_handlers[event] = handler
+
+    def unregister_event_handler(self, event):
+        '''Remove a handler from an event.'''
+
+        self.log.debug('Removing handlers for %s' % event)
+        self.event_handlers.pop(event, None)
