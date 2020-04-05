@@ -38,6 +38,20 @@ API
 
 ::
 
+
+class Error(Exception)
+    Base class for all tcbon exceptions.
+
+
+class ProcessExists(Error)
+    Raised when you try to start a Process that is already running.
+
+
+class ProcessDoesNotExist(Error)
+    Raised when you try to interact with a Process that has not been
+    started. This includes, stop, get, and send methods.
+
+
 class Process()
     Allows only one instance of an application to run at a time.
 
@@ -49,21 +63,21 @@ class Process()
     least one key "name".
 
     Attributes:
-        log (logging.Logger): The Process object's logger
-        wsgi (flask.Flask): Flask application object
-        wsgi_thread (threading.Thread): The Thread containg the Flask app
-        wsgi_running (bool): True when the wsgi_thread is running
-        event_handlers (dict): Contains all event handlers
+        - log (logging.Logger): The Process object's logger
+        - wsgi (flask.Flask): Flask application object
+        - wsgi_thread (threading.Thread): The Thread containg the Flask app
+        - wsgi_running (bool): True when the wsgi_thread is running
+        - event_handlers (dict): Contains all event handlers
 
     Properties:
-        pid_file (str): Full path to Process' pid file
-        running (bool): True when Process is running
+        - pid_file (str): Full path to Process' pid file
+        - running (bool): True when Process is running
 
     Arguments:
-        name (str): Name of the application
-        address (str): Optional address like '127.0.0.1:9876
-        app_dir (str): Optional directory in which to store .pid file
-        debug (bool): Set logging level to DEBUG
+        - name (str): Name of the application
+        - address (str): Optional address like '127.0.0.1:9876
+        - app_dir (str): Optional directory in which to store .pid file
+        - debug (bool): Set logging level to DEBUG
 
     def run_forever(self)
         Convenient method to run this Process forever. Gracefully exits
