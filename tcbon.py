@@ -56,7 +56,7 @@ class Process(object):
     When started each Process runs a small flask server on an available port
     or the http address of your choice. Then the pid and address are written
     to a file. When another Process with the same name is created, this file
-    can be used to check if an Process is already running and send events to
+    can be used to check if a Process is already running and send events to
     the Process if it is running. Events are simple dictionaries that have at
     least one key "name".
 
