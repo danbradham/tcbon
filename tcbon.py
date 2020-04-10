@@ -109,6 +109,7 @@ class Process(object):
         # Silence werkzeug
         logging.getLogger('werkzeug').setLevel(logging.ERROR)
         os.environ['WERKZEUG_RUN_MAIN'] = 'true'
+        os.environ['FLASK_SKIP_DOTENV'] = '1'
 
         # Internal Logger
         log = logging.getLogger(name)
