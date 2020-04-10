@@ -7,13 +7,12 @@ There can be only one!
 A utility to help you keep only one instance of your application alive at a
 time.
 '''
+from __future__ import absolute_import, print_function
 __version__ = '0.1.0'
 __url__ = 'https://github.com/danbradham/tcbon'
 __author__ = 'Dan Bradham'
 __email__ = 'danielbradham@gmail.com'
 __license__ = 'MIT'
-
-from __future__ import print_function
 
 # Standard library imports
 import atexit
